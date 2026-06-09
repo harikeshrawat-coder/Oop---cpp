@@ -1,38 +1,35 @@
 #include <iostream>
 #include<string>
 using namespace std;//using standard namespace
+class animal{ //Base class
+    public: //Access specifier
+    void eat(){
+        cout<<"Eating..."<<endl;
 
-class LandVehicle{ //First Bsae class
+    }
+
+};
+class Dog:public animal{ //intermediate class
     public:
-    void landInfo(){
-        cout<<"This is a Landvehicle"<<endl;
+    void bark(){
+        cout<<"Barking..."<<endl;
+    }
+
+};
+class BabyDog:public Dog{ //Derived class
+    public:
+    void weep(){
+        cout<<"Weeping..."<<endl;
     }
 };
+int main(){
+    BabyDog d1;
+    d1.eat();
+    d1.bark();
+    d1.weep();
+    return 0;
+}
 
-    class WaterVehicle{ //Secod Base class
-     public:
-     void waterInfo(){
-        cout<<"This is a WaterVehicle"<<endl;
-     }
-
-    };
-    //Derived class inheriting from both base classes
-    class AmphibiousVehicle: public LandVehicle, public WaterVehicle
-    {
-        public:
-        void AmphibiousInfo(){
-            cout<<"This is an AmphibiousVehicle"<<endl;
-        }
-    };
-    int main(){
-        AmphibiousVehicle obj;
-
-        obj.waterInfo();
-        obj.landInfo();
-        obj.AmphibiousInfo();
-
-        return 0;
-    }
 
 
 
