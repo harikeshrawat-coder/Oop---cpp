@@ -1,20 +1,21 @@
 #include <iostream>
-#include <string>
-using namespace std;
+#include<string>
+using namespace std;//using standard namespace
+class Account { //Base classs
+    public: //Access modifier/specifier
+    float salary = 65000;
 
-class MyClass{
-    public:
-    int myNum;
-    string myString;
 };
-
-int main(){
-    MyClass myObj;
-
-    myObj.myNum = 15;
-    myObj. myString = "Hello Harkesh";
-    cout<<myObj.myNum<<endl;
-    cout<<myObj.myString<<endl;
-
+class Programmer: public Account {
+    public:
+    float bonus = 5500;
+};
+int main(void) {
+    Programmer p1;
+    cout<<"salary :"<<p1.salary<<endl;
+    cout<<"bonus:"<<p1.bonus<<endl;
     return 0;
 }
+
+
+
