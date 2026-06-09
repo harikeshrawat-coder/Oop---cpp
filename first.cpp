@@ -1,34 +1,38 @@
 #include <iostream>
 #include<string>
 using namespace std;//using standard namespace
-class animal{ //Base class
-    public: //Access specifier
-    void eat(){
-        cout<<"Eating..."<<endl;
-
-    }
-
-};
-class Dog:public animal{ //intermediate class
+class Vehicle{
     public:
-    void bark(){
-        cout<<"Barking..."<<endl;
+    void vehicle(){
+        cout<<"This is a vehicle"<<endl;
     }
-
 };
-class BabyDog:public Dog{ //Derived class
+class Fare{
     public:
-    void weep(){
-        cout<<"Weeping..."<<endl;
+    void fare(){
+        cout<<"fare of vehicle"<<endl;
+    }
+};
+class Car:public Vehicle{
+    public:
+    void car(){
+        cout<<"This is a car"<<endl;
+    }
+};
+class Bus:public Vehicle,public Fare{
+    public:
+    void bus(){
+      cout<<"This is a bus with fare"<<endl;  
     }
 };
 int main(){
-    BabyDog d1;
-    d1.eat();
-    d1.bark();
-    d1.weep();
+    Bus obj2;
+    obj2.vehicle();
+    obj2.fare();
+    obj2.bus();
     return 0;
 }
+
 
 
 
