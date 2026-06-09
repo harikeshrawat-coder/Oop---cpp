@@ -1,21 +1,41 @@
 #include <iostream>
 #include<string>
 using namespace std;//using standard namespace
-class Account { //Base classs
-    public: //Access modifier/specifier
-    float salary = 65000;
 
-};
-class Programmer: public Account {
+class LandVehicle{ //First Bsae class
     public:
-    float bonus = 5500;
+    void landInfo(){
+        cout<<"This is a Landvehicle"<<endl;
+    }
 };
-int main(void) {
-    Programmer p1;
-    cout<<"salary :"<<p1.salary<<endl;
-    cout<<"bonus:"<<p1.bonus<<endl;
-    return 0;
-}
+
+    class WaterVehicle{ //Secod Base class
+     public:
+     void waterInfo(){
+        cout<<"This is a WaterVehicle"<<endl;
+     }
+
+    };
+    //Derived class inheriting from both base classes
+    class AmphibiousVehicle: public LandVehicle, public WaterVehicle
+    {
+        public:
+        void AmphibiousInfo(){
+            cout<<"This is an AmphibiousVehicle"<<endl;
+        }
+    };
+    int main(){
+        AmphibiousVehicle obj;
+
+        obj.waterInfo();
+        obj.landInfo();
+        obj.AmphibiousInfo();
+
+        return 0;
+    }
+
+
+
 
 
 
