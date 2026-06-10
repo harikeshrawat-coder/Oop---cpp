@@ -1,35 +1,39 @@
 #include <iostream>
 using namespace std;//using standard namespace
-class Vehicle{
-private:
-void piston(){
-    cout<<"4 piston\n";
-}
-void manWhoMade(){
-  cout<<"Markus Librette\n";
-}
-public:
-void company(){
-     cout<<"GFG\n";
-}
-void model(){
-    cout<<"SIMPLE\n";
-}
-void color(){
-    cout<<"Red/Green/Silver\n";
-}
-void cost(){
-    cout<<"Rs.60,000 to 90,000\n";
-}
-void oil(){
-    cout<<"PATROL\n";
-}
+//Abstract class
+class shape{
+    public:
+    //Pure virtual function
+    virtual void draw()=0;
+
+    //Concrete(normal)function
+    void info(){
+        cout<<"this is a shape"<<endl;
+    }
 };
+
+//derived class 1
+class Circle: public shape{
+    public:
+    void draw(){
+        cout<<"Drawing a Circle"<<endl;
+    }
+};
+
+//Derived class 2
+class Rectangle: public shape{
+    public:
+    void draw(){
+        cout<<"Drawing a Rectangle"<<endl;
+    }
+};
+
 int main(){
-    Vehicle obj;
-    obj.company();
-    obj.model();
-    obj.color();
-    obj.cost();
-    obj.oil();
+    //creating objects for derived classes
+    Circle c;
+    Rectangle r;
+
+    //calling functions
+    c.draw();
+    r.draw();
 }
