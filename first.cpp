@@ -1,40 +1,35 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;//using standard namespace
-
-class Base{
-    public:
-
-    //virtual function
-    virtual void display(){
-        cout<<"Base class function";
-    }
-};
-
-class Derived:public Base{
-    public:
-    //Overriding the base class function
-    void display()override{
-        cout<<"Derived class function";
-    }
-};
-
-int main(){//main function
-    Base*basePtr;//creating a pointer of type base
-    Derived derivedObj;//creating an object of derived class
-    
-    //pointing base class pointerton derived class object
-    basePtr= &derivedObj;
-
-    //calling the display function using base class objct class pointer
-    basePtr-> display();
-    return 0;
+class Vehicle{
+private:
+void piston(){
+    cout<<"4 piston\n";
 }
-
-
-
-    
-
-
-
-
-
+void manWhoMade(){
+  cout<<"Markus Librette\n";
+}
+public:
+void company(){
+     cout<<"GFG\n";
+}
+void model(){
+    cout<<"SIMPLE\n";
+}
+void color(){
+    cout<<"Red/Green/Silver\n";
+}
+void cost(){
+    cout<<"Rs.60,000 to 90,000\n";
+}
+void oil(){
+    cout<<"PATROL\n";
+}
+};
+int main(){
+    Vehicle obj;
+    obj.company();
+    obj.model();
+    obj.color();
+    obj.cost();
+    obj.oil();
+}
