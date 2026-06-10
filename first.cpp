@@ -2,16 +2,13 @@
 using namespace std;//using standard namespace
 
 int main(){
-    int a = 10;
-    int b = 20;
-    if(a > b){
-        cout<<a<<" is greater than "<<b<<endl;
-
+    int n;
+    cin >> n; //taking input from user
+    int factorial = 1;
+    for(int i = 1; i <= n; i++){
+        factorial  = factorial * i;
     }
-    else{
-        cout<<b<<" is greater than "<<a<<endl;
-
-    }
+    cout<<"Factorial of "<<n<<" is "<<factorial<<endl;
 
     return 0;
 }
