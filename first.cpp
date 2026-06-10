@@ -1,29 +1,32 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;//using standard namespace
-class Complex{
+
+class Base{
     public:
-    int real, imag;
-    Complex operator + (Complex c){
-        Complex temp;
-        temp.real = real + c.real;
-        temp.imag= imag + c. imag;
-        return temp;
+
+    //virtual function
+    virtual void display(){
+        cout<<"Base class function";
+    }
+};
+
+class Derived:public Base{
+    public:
+    //Overriding the base class function
+    void display()override{
+        cout<<"Derived class function";
     }
 };
 
 int main(){//main function
-    Complex c1, c2, c3;
-    //assining values manually
-    c1.real = 10;
-    c1. imag = 5;
-    c2.real = 2;
-    c2.imag = 4;
+    Base*basePtr;//creating a pointer of type base
+    Derived derivedObj;//creating an object of derived class
     
-    //Add tow complex numbers using operator overloading
-    c3=c1+c2;
-    //displaying the result
-    cout<<c3.real<<"+"<<c3.imag<<"i"<<endl;
+    //pointing base class pointerton derived class object
+    basePtr= &derivedObj;
 
+    //calling the display function using base class objct class pointer
+    basePtr-> display();
     return 0;
 }
 
