@@ -1,19 +1,29 @@
 #include <iostream>
 using namespace std;//using standard namespace
-class FuncOver{
+class Complex{
     public:
-    void Multiplication(int x, int y){//function to multiply tow integer point values
-        cout<<"Integer Multiplication Result="<<x*y<<endl;
-    }
-    void Multiplication(double x, double y){//function to multiply two double point values
-        cout<<"Double Float Result="<<x*y<<endl;
+    int real, imag;
+    Complex operator + (Complex c){
+        Complex temp;
+        temp.real = real + c.real;
+        temp.imag= imag + c. imag;
+        return temp;
     }
 };
 
 int main(){//main function
-    FuncOver obj;
-    obj.Multiplication(12,5);//calls show(int)
-    obj.Multiplication(3.5,5.5);//calls show(double)
+    Complex c1, c2, c3;
+    //assining values manually
+    c1.real = 10;
+    c1. imag = 5;
+    c2.real = 2;
+    c2.imag = 4;
+    
+    //Add tow complex numbers using operator overloading
+    c3=c1+c2;
+    //displaying the result
+    cout<<c3.real<<"+"<<c3.imag<<"i"<<endl;
+
     return 0;
 }
 
