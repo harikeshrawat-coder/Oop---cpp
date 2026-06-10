@@ -1,28 +1,18 @@
 #include <iostream>
-#include<string>
 using namespace std;//using standard namespace
-class Vehicle{
-    public:
-    void vehicle(){
-        cout<<"This is a vehicle"<<endl;
-    }
-};
-class Car:public Vehicle{
-    public:
-    Car(){
-        cout<<"This is a car"<<endl;
-    }
-};
-class Bus:public Vehicle{
-    public:
-    Bus(){
-        cout<<"This is a bus"<<endl;
-    }
-};
+
 int main(){
-    Car obj1;
-    Bus obj2;
-    
+    int a = 10;
+    int b = 20;
+    if(a > b){
+        cout<<a<<" is greater than "<<b<<endl;
+
+    }
+    else{
+        cout<<b<<" is greater than "<<a<<endl;
+
+    }
+
     return 0;
 }
 
