@@ -2,28 +2,43 @@
 #include <string>
 using namespace std;//using standard namespace
 
-template <class T>
-class Box{
-    private:
-    T value;
+//Code of Designe For Reuse
+class Person{
+    protected ://access specifier
+    string name ;
+
     public:
-    void set(T v){
-        value = v;
+    void setName(string n){
+        name = n;
     }
-    T get(){
-        return value;
+    string getName() const { return name; }
+};
+
+void displayName(Person& p){
+    cout<<"Name:"<<p.getName()<<endl;
+};
+class Student:public Person{
+    private://access specipier
+    int roll;
+
+    public:
+    void setRoll(int r){
+        roll = r;
+    };
+    
+    void displayStudent(){
+        cout<<"Name:"<<name<<endl;
+        cout<<"Roll Number:"<<roll<<endl;
     }
 };
+ 
+
 int main(){
-    Box<int>b1;
-    Box<float>b2;
-    Box<string>b3;
+    Student s;
 
-    b1.set(100);
-    b2.set(10.5);
-    b3.set("Hello");
+    s.setName("Harkesh");
+    s.setRoll(21);
 
-    cout<<b1.get()<<endl;
-    cout<<b2.get()<<endl;
-    cout<<b3.get()<<endl;
-}
+    s.displayStudent();
+    return 0;
+}    
