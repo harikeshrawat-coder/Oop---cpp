@@ -1,25 +1,14 @@
 #include <iostream>
-#include <math.h>
+#include <string>
 using namespace std;//using standard namespace
 
-//Example of composition
-class Engine{
-    public:
-    void start(){
-        cout<<"Engine start"<<endl;
-    }
+template <typename T>
+T maximum(T a,T b){
+    return(a>b)? a:b;
 };
-class Car{
-    private:
-    Engine engine;//Compositon
-    public:
-    void drive(){
-        engine.start();
-        cout<<"Car is moving"<<endl;
-    }
-};
+
 int main(){
-    Car c;
-    c.drive();
-    return 0;
+    cout<<maximum(10,20)<<endl;
+    cout<<maximum(5.5,3.2)<<endl;
+    cout<<maximum('A','B')<<endl;
 }
