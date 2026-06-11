@@ -2,17 +2,28 @@
 #include <string>
 using namespace std;//using standard namespace
 
-//Example of Function Templete with multiple parameter
 template <class T>
-void fun(T a){
-    cout<<"Value of a is:"<<a<<endl;
-}
-template<class x,class y >void fun(x b,y c){
-    cout<<"Value of b is:"<<b<<endl;
-    cout<<"Value of c is:"<<c<<endl; 
+class Box{
+    private:
+    T value;
+    public:
+    void set(T v){
+        value = v;
+    }
+    T get(){
+        return value;
+    }
 };
 int main(){
-    fun(10);
-    fun(20,30.5);
-    return 0;
+    Box<int>b1;
+    Box<float>b2;
+    Box<string>b3;
+
+    b1.set(100);
+    b2.set(10.5);
+    b3.set("Hello");
+
+    cout<<b1.get()<<endl;
+    cout<<b2.get()<<endl;
+    cout<<b3.get()<<endl;
 }
