@@ -1,19 +1,30 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Activity diagram example
-int main(){
-    string username,password;
-    cout<<"Enter username:";
-    cin>>username;
-    cout<<"Enter password:";
-    cin>>password;
+//Sequence Diagram example
 
-    if(username=="admin" && password=="1234"){
-        cout<<"Login Sccessfull";
+class Payment{
+    public:
+    void processPayment(){
+        cout<<"Payment Processed\n";
     }
-    else{
-        cout<<"Login failed";
+};
+
+class Order{
+    public:
+    void placeOrder(){
+        cout<<"Order placed\n";
     }
+};
+
+int main(){
+    Order o;
+    Payment p;
+
+    o.placeOrder();
+    p.processPayment();
+
+    cout<<"Order Confirmed\n";
+
     return 0;
 }
