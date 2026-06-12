@@ -1,31 +1,19 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Object Diagram Representation
-
-class Student{
-    public:
-    string name;
-    int roll;
-
-    void display(){
-        cout<<"Name:"<<name<<endl;
-        cout<<"Roll:"<<roll<<endl;
-    }
-};
-
+//Activity diagram example
 int main(){
-    Student s1;
-    Student s2;
+    string username,password;
+    cout<<"Enter username:";
+    cin>>username;
+    cout<<"Enter password:";
+    cin>>password;
 
-    s1.name = "Harkesh";
-    s1.roll = 101;
-
-    s2.name = "Bhawana";
-    s2.roll = 102;
-
-    s1.display();
-    s2.display();
-
+    if(username=="admin" && password=="1234"){
+        cout<<"Login Sccessfull";
+    }
+    else{
+        cout<<"Login failed";
+    }
     return 0;
 }
