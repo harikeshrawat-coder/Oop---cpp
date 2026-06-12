@@ -1,27 +1,30 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Deployment Diagram example
+//Example of creational patterns (singleton)
 
-class Server{
+class Singleton{
+    private:
+    static Singleton * instance;
+
+    Singleton(){}
+
     public:
-    void request(){
-        cout<<"Server processing request\n";
+    static Singleton*getInstance(){
+        if(instance == nullptr)
+        instance = new Singleton();
+        return instance;
+    }
+
+    void show(){
+        cout<<"Singleton Instance\n";
     }
 };
-class Client{
-    public:
-    void sendRequest(Server &s){
-        cout<<"Client sending request\n";
-        s.request();
-    }
-};
+
+Singleton*Singleton:: instance= nullptr;
 
 int main(){
-    Server server;
-    Client client;
-
-    client.sendRequest(server);
-
-    return 0;
+    Singleton*s1 = Singleton::getInstance();
+    s1->show();
+    return 0; 
 }
