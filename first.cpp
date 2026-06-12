@@ -1,29 +1,34 @@
 #include <iostream>
+#include <vector>
 using namespace std;//using standard namespace
 
-//Example of Strucltural pattern (Adaptor)
+//Example of Behaviroal pattern (Observer)
 
-//Existing class(old system)
-class OldCharger{
+class Subscriber{
     public:
-    void oldCharger(){
-      cout<<"Charging with old charger\n";
+    void update(){
+        cout<<"New video uploaded!\n";
     }
 };
-
-//Adaptor class(converts old interface to new)
-class Adaptor{
-    private:
-    OldCharger oc;
+class Channel{
+    vector<Subscriber*>subs;
 
     public:
-    void charge(){
-        oc.oldCharger();//delegation
-    }
+      void subscribe(Subscriber*s){
+        subs.push_back(s);
+      }
+      void notify(){
+        for(auto s:subs)
+        s->update();
+      }
 };
 int main(){
-    Adaptor a;
-    a.charge();//using adaptor instead of old charger
+    Channel ch;
+    Subscriber s1,s2;
+    ch.subscribe(&s1);
+    ch.subscribe(&s2);
+    ch.notify();
     return 0;
 }
+
 
