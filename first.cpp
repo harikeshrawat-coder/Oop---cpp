@@ -2,33 +2,44 @@
 #include <vector>
 using namespace std;//using standard namespace
 
-//Example of Behaviroal pattern (Observer)
+//Example of Behavioral pattern (Strategy)
 
-class Subscriber{
+class Payment{
     public:
-    void update(){
-        cout<<"New video uploaded!\n";
+    virtual void pay()=0;
+    virtual ~Payment() = default;
+};
+class UPI:public Payment{
+    public:
+    void pay() override {
+        cout<<"Paid using UPI\n";
     }
 };
-class Channel{
-    vector<Subscriber*>subs;
-
+class Card:public Payment{
     public:
-      void subscribe(Subscriber*s){
-        subs.push_back(s);
-      }
-      void notify(){
-        for(auto s:subs)
-        s->update();
-      }
+    void pay() override {
+        cout<<"Paid using Card\n";
+    }
+};
+class Shopping{
+    private:
+    Payment* method = nullptr;
+    public:
+    void setPayment(Payment* P){
+        method = P;
+    }
+    void checkout(){
+        if(method) method->pay();
+    }
 };
 int main(){
-    Channel ch;
-    Subscriber s1,s2;
-    ch.subscribe(&s1);
-    ch.subscribe(&s2);
-    ch.notify();
+    Shopping s;
+    UPI u;
+    s.setPayment(&u);
+    s.checkout();
     return 0;
 }
+
+
 
 
