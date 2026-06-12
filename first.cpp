@@ -1,31 +1,31 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Example of class diagram
-class BankAccount{
-    private:
-    string accountHolder;
-    int balance;
+//Object Diagram Representation
+
+class Student{
     public:
-    void createAccount(string name,int amount){
-         accountHolder = name;
-         balance = amount;
-    }
-    void deposit(int amount){
-        balance += amount;
-    }
+    string name;
+    int roll;
+
     void display(){
-        cout<<"Account Holder:"<<accountHolder<<endl;
-        cout<<"Balance:"<<balance<<endl;
+        cout<<"Name:"<<name<<endl;
+        cout<<"Roll:"<<roll<<endl;
     }
 };
+
 int main(){
-    BankAccount acc;
+    Student s1;
+    Student s2;
 
-    acc.createAccount("Harkesh", 1000);
-    acc.deposit(500);
+    s1.name = "Harkesh";
+    s1.roll = 101;
 
-    acc.display();
+    s2.name = "Bhawana";
+    s2.roll = 102;
+
+    s1.display();
+    s2.display();
 
     return 0;
 }
