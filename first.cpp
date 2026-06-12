@@ -2,43 +2,34 @@
 #include <string>
 using namespace std;//using standard namespace
 
-//Code of Designe For Reuse
-class Person{
-    protected ://access specifier
-    string name ;
+//Use Case Example:ATM System
+
+class ATM{
+    private:
+    int balance = 5000;
 
     public:
-    void setName(string n){
-        name = n;
+    void checkBalance(){
+        cout<<"Balance:"<<balance<<endl;
     }
-    string getName() const { return name; }
-};
 
-void displayName(Person& p){
-    cout<<"Name:"<<p.getName()<<endl;
-};
-class Student:public Person{
-    private://access specipier
-    int roll;
-
-    public:
-    void setRoll(int r){
-        roll = r;
-    };
-    
-    void displayStudent(){
-        cout<<"Name:"<<name<<endl;
-        cout<<"Roll Number:"<<roll<<endl;
+    void withdraw(int amount){
+        if(amount <=  balance){
+            balance -= amount;
+            cout<<"Withdrawal Successfull\n";
+        }else{
+            cout<<"Insufficient Balance\n";
+        }
     }
 };
- 
-
 int main(){
-    Student s;
+    ATM atm;
 
-    s.setName("Harkesh");
-    s.setRoll(21);
+    atm.checkBalance();
+    atm.withdraw(2000);
+    atm.checkBalance();
 
-    s.displayStudent();
     return 0;
-}    
+
+
+}
