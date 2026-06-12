@@ -1,38 +1,29 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Example of creational pattern (Factory)
+//Example of Strucltural pattern (Factory)
 
-class Shape{
+//Existing class(old system)
+class OldCharger{
     public:
-    virtual void draw()=0;
-};
-class Circle:public Shape{
-    public:
-    void draw(){
-        cout<<"Drawing Circle\n";
+    void oldCharger(){
+      cout<<"Charging with old charger\n";
     }
 };
-class Square:public Shape{
+
+//Adaptor class(converts old interface to new)
+class Adaptor{
+    private:
+    OldCharger oc;
+
     public:
-    void draw(){
-        cout<<"Drawing Square\n";
-    }
-};
-class ShapeFactory{
-    public:
-    Shape* getShape(string type){
-        if(type=="Circle")
-           return new Circle();
-        else if(type=="Square")
-           return new Square();
-        return nullptr;
+    void charge(){
+        oc.oldCharger();//delegation
     }
 };
 int main(){
-    ShapeFactory factory;
-    Shape*s=factory.getShape("Circle");
-    s->draw();
+    Adaptor a;
+    a.charge();//using adaptor instead of old charger
     return 0;
 }
 
