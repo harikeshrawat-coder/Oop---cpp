@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Example of Strucltural pattern (Factory)
+//Example of Strucltural pattern (Adaptor)
 
 //Existing class(old system)
 class OldCharger{
