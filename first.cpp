@@ -1,35 +1,31 @@
 #include <iostream>
-#include <string>
 using namespace std;//using standard namespace
 
-//Use Case Example:ATM System
-
-class ATM{
+//Example of class diagram
+class BankAccount{
     private:
-    int balance = 5000;
-
+    string accountHolder;
+    int balance;
     public:
-    void checkBalance(){
-        cout<<"Balance:"<<balance<<endl;
+    void createAccount(string name,int amount){
+         accountHolder = name;
+         balance = amount;
     }
-
-    void withdraw(int amount){
-        if(amount <=  balance){
-            balance -= amount;
-            cout<<"Withdrawal Successfull\n";
-        }else{
-            cout<<"Insufficient Balance\n";
-        }
+    void deposit(int amount){
+        balance += amount;
+    }
+    void display(){
+        cout<<"Account Holder:"<<accountHolder<<endl;
+        cout<<"Balance:"<<balance<<endl;
     }
 };
 int main(){
-    ATM atm;
+    BankAccount acc;
 
-    atm.checkBalance();
-    atm.withdraw(2000);
-    atm.checkBalance();
+    acc.createAccount("Harkesh", 1000);
+    acc.deposit(500);
+
+    acc.display();
 
     return 0;
-
-
 }
