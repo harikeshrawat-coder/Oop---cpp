@@ -1,30 +1,27 @@
 #include <iostream>
 using namespace std;//using standard namespace
 
-//Sequence Diagram example
+//Deployment Diagram example
 
-class Payment{
+class Server{
     public:
-    void processPayment(){
-        cout<<"Payment Processed\n";
+    void request(){
+        cout<<"Server processing request\n";
     }
 };
-
-class Order{
+class Client{
     public:
-    void placeOrder(){
-        cout<<"Order placed\n";
+    void sendRequest(Server &s){
+        cout<<"Client sending request\n";
+        s.request();
     }
 };
 
 int main(){
-    Order o;
-    Payment p;
+    Server server;
+    Client client;
 
-    o.placeOrder();
-    p.processPayment();
-
-    cout<<"Order Confirmed\n";
+    client.sendRequest(server);
 
     return 0;
 }
